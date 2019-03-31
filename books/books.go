@@ -8,8 +8,8 @@ import (
 )
 
 type Book struct {
-	page   string    `json:"page"`
-	title   string    `json:"title"`
+	Page   string    `json:"page"`
+	Title   string    `json:"title"`
 }
 
 
@@ -17,7 +17,7 @@ func CreateBook (w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	title := vars["title"]
 
-	Book := Book{title:title, page:"1"}
+	Book := Book{title, "1"}
 	fmt.Println(Book)
 	respondWithJSON(w, 200, Book)
 }
@@ -27,7 +27,7 @@ func ReadBook (w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	title := vars["title"]
 
-	Book := Book{title:title, page:"1"}
+	Book := Book{title, "1"}
 	fmt.Println(Book)
 
 	respondWithJSON(w, 200, Book)
@@ -39,7 +39,7 @@ func UpdateBook (w http.ResponseWriter, r *http.Request) {
 
 	//fmt.Fprintf(w, "You've requested the book: %s", title)
 
-	Book := Book{title:title, page:"1"}
+	Book := Book{title, "1"}
 	respondWithJSON(w, 200, Book)
 }
 
@@ -48,7 +48,7 @@ func DeleteBook (w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	title := vars["title"]
 
-	Book := Book{title:title, page:"1"}
+	Book := Book{title, "1"}
 	respondWithJSON(w, 200, Book)
 }
 
